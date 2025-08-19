@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+uni_student,uni_student,model_uni_student,,1,1,1,1
+uni_card,uni_card,model_uni_card,,1,1,1,1
+uni_card_checker,uni_card_checker,model_uni_card_checker,,1,1,1,1

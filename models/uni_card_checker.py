@@ -8,7 +8,7 @@ class UniCardChecker(models.Model):
     _name='uni.card.checker'
 
     card=fields.Binary()
-    status=fields.Char(store=True)
+    status=fields.Char()
     name=fields.Char()
     gender=fields.Char()
     department=fields.Char()
@@ -73,5 +73,3 @@ class UniCardChecker(models.Model):
                 record.academic_year=""
                 record.image=False
                 record.gender=""
-
-                #hello world

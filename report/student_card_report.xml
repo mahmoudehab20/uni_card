@@ -1,0 +1,68 @@
+<odoo>
+
+
+    <record id="report_student_card" model="ir.actions.report">
+        <field name="name">Student Card</field>
+        <field name="model">uni.card</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">uni.card.report_student_card</field>
+        <field name="binding_model_id" ref="model_uni_card"/>
+        <field name="binding_type">report</field>
+        <field name="report_name">uni_card.report_student_card_template</field>
+    </record>
+
+
+    <template id="report_student_card_template">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="student">
+                <div class="page"
+                     style="width:85mm; height:55mm; border:1px solid #000; border-radius:8px;
+                  padding:5mm; box-sizing:border-box; font-size:12px;">
+
+                    <table style="width:100%; height:100%; border-collapse:collapse;">
+                        <tr>
+                            <td style="width:70%; text-align:left; vertical-align:middle; padding-left:10px;">
+                                <p style="margin:2px 0;text-transform:capitalize;">
+                                    <strong>Name:</strong>
+                                    <t t-esc="student.name"/>
+                                </p>
+                                <p style="margin:2px 0;text-transform:capitalize;">
+                                    <strong>Grade:</strong>
+                                    <t t-esc="student.academic_year"/>
+                                </p>
+                                <p style="margin:2px 0;text-transform:capitalize;">
+                                    <strong>Section:</strong>
+                                    <t t-esc="student.department"/>
+                                </p>
+                                <p style="margin:2px 0;">
+                                    <strong>ID:</strong>
+                                    <t t-esc="student.ref"/>
+                                </p>
+
+                                <p style="margin:2px 0;text-transform:capitalize;">
+                                    <strong>Academic Year:</strong>
+                                    <t t-esc="student.study_year"/>
+                                </p>
+                            </td>
+
+                            <td style="width:30%; text-align:center; vertical-align:top;">
+                                <t t-if="student.image">
+                                    <img t-att-src="'data:image/png;base64,%s' % student.image.decode()"
+                                         style="width:70px; height:70px; border-radius:8px; display:block; margin:0 auto;"/>
+                                </t>
+                                <br/>
+                                <t t-if="student.barcode">
+                                    <img t-att-src="'data:image/png;base64,%s' % student.barcode.decode()"
+                                         style="width:70px; height:70px; display:block; margin:5px auto 0;"/>
+                                </t>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+
+</odoo>
+

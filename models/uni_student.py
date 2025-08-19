@@ -4,6 +4,12 @@ import random
 class UniStudent(models.Model):
     _name='uni.student'
 
+    
+    state=fields.Selection([
+        ('draft','Draft'),
+        ('valid','Valid'),
+        ('expired','Expired')
+    ],default='draft')
     ref=fields.Char(default='new',string='ID',readonly=True)
     name=fields.Char()
     department=fields.Selection([
@@ -25,11 +31,6 @@ class UniStudent(models.Model):
     study_year=fields.Char(compute='_compute_study_date')
     start_date=fields.Date(string='Date Issued')
     end_date=fields.Date(string='Expire Date')
-    state=fields.Selection([
-        ('draft','Draft'),
-        ('valid','Valid'),
-        ('expired','Expired')
-    ],default='draft')
 
     @api.depends('start_date','end_date')
     def _compute_study_date(self):

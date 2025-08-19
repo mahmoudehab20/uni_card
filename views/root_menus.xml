@@ -1,28 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <menuitem
-        id="uni_code_root_menu"
-        name="University Card"
-        web_icon="uni_card,static/description/icon.png"
-    />
-    
-    <menuitem 
-        id="uni_card_menu"
-        name="Cards"
-        parent="uni_code_root_menu"
-        action="uni_card_action"    
-    />
+    <data>
+        <menuitem
+                id="uni_code_root_menu"
+                name="University Card"
+                web_icon="uni_card,static/description/icon.png"
+        />
 
-    <menuitem 
-        id="uni_student_menu"
-        name="Students"
-        parent="uni_code_root_menu"
-        action="uni_student_action"    
-    />
+        <menuitem
+                id="uni_card_menu"
+                name="Cards"
+                parent="uni_code_root_menu"
+                action="uni_card_action"
+        />
 
-    <menuitem 
-        id="uni_card_checker_menu"
-        name="Card Checker"
-        parent="uni_code_root_menu"
-        action="uni_card_checker_action"    
-    />
+        <menuitem
+                id="uni_student_menu"
+                name="Students"
+                parent="uni_code_root_menu"
+                action="uni_student_action"
+        />
+
+        <menuitem
+                id="uni_card_checker_menu"
+                name="Card Checker"
+                parent="uni_code_root_menu"
+                action="uni_card_checker_action"
+        />
+    </data>
 </odoo>

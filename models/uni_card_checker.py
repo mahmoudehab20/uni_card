@@ -64,12 +64,11 @@ class UniCardChecker(models.Model):
                             record.department=department_label
                             record.gender=gender_label
 
-
-            else:
-                record.status='not valid'
-                record.is_valid=False
-                record.name=""
-                record.department=""
-                record.academic_year=""
-                record.image=False
-                record.gender=""
+                        else:
+                            record.status='not valid'
+                            record.is_valid=False
+                            record.name=""
+                            record.department=""
+                            record.academic_year=""
+                            record.image=False
+                            record.gender=""

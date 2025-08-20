@@ -71,3 +71,16 @@ class UniStudent(models.Model):
         res.ref=self.env['ir.sequence'].next_by_code('students_seq')
 
         return res
+
+    def action_draft(self):
+        self.state = 'draft'
+        self.end_date = False
+        self.start_date = False
+        self.study_year = ""
+        
+    def _check_expiry_date(self):
+        student_ids=self.search([])
+        today=fields.Date.today()
+        for student in student_ids:
+            if student.end_date and student.end_date < today:
+                student.state='expired'

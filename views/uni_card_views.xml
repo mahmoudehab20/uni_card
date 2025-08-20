@@ -1,8 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-    <record id="uni_card_action" model="ir.actions.act_window">
-        <field name="name">Card</field>
-        <field name="res_model">uni.card</field>
-    </record>    
-
+    <data>
+        <record id="uni_card_form_view" model="ir.ui.view">
+            <field name="name">Uni Card Form</field>
+            <field name="model">uni.card</field>
+            <field name="arch" type="xml">
+                <form string="Uni Card">
+                    <sheet>
+                        <group>
+                            <field name="student_id"/>
+                            <group>
+                                <field name="name"/>
+                                <field name="department"/>
+                            </group>
+                            <group>
+                                <field name="academic_year"/>
+                                <field name="study_year"/>
+                                <field name="start_date"/>
+                                <field name="end_date"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="uni_card_tree_view" model="ir.ui.view">
+            <field name="name">Uni Card Tree</field>
+            <field name="model">uni.card</field>
+            <field name="arch" type="xml">
+                <tree string="Uni Card">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <record id="uni_card_action" model="ir.actions.act_window">
+            <field name="name">Card</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">uni.card</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
 </odoo>
+
+
+
+
+

@@ -7,21 +7,22 @@ import base64
 class UniCardChecker(models.Model):
     _name='uni.card.checker'
 
-    card=fields.Binary()
-    status=fields.Char(store=True)
+    card=fields.Binary(attachment=True)
+    status=fields.Char()
     name=fields.Char()
     gender=fields.Char()
     department=fields.Char()
     academic_year=fields.Char()
     image=fields.Image()
     is_valid=fields.Boolean(default=True)
-
-
+    
     @api.onchange('card')
     def _compute_status(self):
            # Assuming 'self' is a recordset of your model
         for record in self:
             if record.card:
+                
+                print(record.card,"DATA@@@@@@@@@@@@@@@@@@2")
                 
                 # Decode the binary data
                 pdf_data = base64.b64decode(record.card)
@@ -72,3 +73,11 @@ class UniCardChecker(models.Model):
                             record.academic_year=""
                             record.image=False
                             record.gender=""
+            else:
+                record.status=""
+                record.is_valid=False
+                record.name=""
+                record.department=""
+                record.academic_year=""
+                record.image=False
+                record.gender=""

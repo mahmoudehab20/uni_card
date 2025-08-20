@@ -22,8 +22,6 @@ class UniCardChecker(models.Model):
         for record in self:
             if record.card:
                 
-                print(record.card,"DATA@@@@@@@@@@@@@@@@@@2")
-                
                 # Decode the binary data
                 pdf_data = base64.b64decode(record.card)
                 pages=convert_from_bytes(pdf_data)

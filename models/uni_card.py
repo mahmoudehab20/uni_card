@@ -9,6 +9,9 @@ except ImportError:
 class UniCard(models.Model):
     _name='uni.card'
 
+
+    #this fields
+    
     student_id=fields.Many2one('uni.student')
     ref=fields.Char(string='ID',readonly=True,related='student_id.ref')
     name=fields.Char(related='student_id.name')

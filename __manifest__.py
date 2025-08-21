@@ -1,5 +1,5 @@
 {
-    'name':'University Card Checker',
+    'name':'University Card Virification',
     'version':'17.0.1.0',
     'depends':['base'],
     'data':[

@@ -73,3 +73,5 @@ class UniCardChecker(models.Model):
                 record.academic_year=""
                 record.image=False
                 record.gender=""
+
+                # test changes 
